@@ -29,7 +29,7 @@ public class L1480 {
     }
 
     public int[] runningSum(int[] nums) {
-        return violentSolution(nums);
+        return solution2(nums);
     }
 
     // 暴力求解    O(n^2)
@@ -43,6 +43,29 @@ public class L1480 {
             sums[i] = tempSum;
         }
         return sums;
+    }
+
+    /**
+     *  执行用时：0 ms
+     *  内存消耗：38.4 MB
+     *
+     * O(n)
+     *
+     * 修改了输入的参数
+     *
+     * @param nums
+     * @return
+     */
+    private int[] solution2(int[] nums){
+        if(nums.length == 0){
+            return nums;
+        }
+
+        for(int i = 1; i < nums.length; i++){
+            nums[i] += nums[i-1];
+        }
+
+        return nums;
     }
 }
 
